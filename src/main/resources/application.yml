@@ -1,0 +1,36 @@
+server:
+  port: ${PORT:8000}
+
+management.contextPath: /admin
+
+metricsReporter:
+  period: 60m
+
+eureka:
+  client:
+    registerWithEureka: ${client.registerWithEureka}
+    fetchRegistry: ${client.fetchRegistry}
+    serviceUrl:
+      defaultZone: ${peerUrls}
+  instance:
+    statusPageUrlPath: ${management.contextPath}/info
+    healthCheckUrlPath: ${management.contextPath}/health
+    preferIpAddress: true
+    metadataMap:
+      instanceId: ${spring.application.name}:${server.port}
+
+---
+spring:
+  profiles: standalone
+client:
+  registerWithEureka: false
+  fetchRegistry: false
+peerUrls: http://localhost:${server.port}/eureka/
+
+---
+spring:
+  profiles: peerAware
+client:
+  registerWithEureka: true
+  fetchRegistry: true
+# -DpeerUrls VM argument as http://host1:port1/eureka/,http://host2:port2/eureka/,...
