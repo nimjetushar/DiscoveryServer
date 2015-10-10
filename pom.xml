@@ -14,9 +14,16 @@
 	<name>DiscoveryServer</name>
 	<description>Discovery Server</description>
 
+	<scm>
+		<connection>${project.git.url}</connection>
+		<developerConnection>${project.git.url}</developerConnection>
+		<url>http://git.3velopers.net:7990/projects/AC</url>
+	</scm>
+
 	<properties>
 		<start-class>com.asimio.cloud.eureka.EurekaServerApplication</start-class>
 		<packaging.type>jar</packaging.type>
+		<project.git.url>http://git.3velopers.net:7990/scm/ac/discoveryserver.git</project.git.url>
 	</properties>
 
 	<dependencies>
