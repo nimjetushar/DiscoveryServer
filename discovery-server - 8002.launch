@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.springframework.ide.eclipse.boot.launch">
-<stringAttribute key="bad_container_name" value="/DiscoveryServer/kjk"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/DiscoveryServer/src/main/java/com/asimio/cloud/eureka/EurekaServerApplication.java"/>
+<listEntry value="/discovery-server/src/main/java/com/asimio/cloud/eureka/EurekaServerApplication.java"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="1"/>
 </listAttribute>
-<listAttribute key="org.eclipse.debug.ui.favoriteGroups">
-<listEntry value="org.eclipse.debug.ui.launchGroup.debug"/>
-<listEntry value="org.eclipse.debug.ui.launchGroup.run"/>
-</listAttribute>
 <booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_START_ON_FIRST_THREAD" value="true"/>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="com.asimio.cloud.eureka.EurekaServerApplication"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="DiscoveryServer"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="discovery-server"/>
 <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.springframework.ide.eclipse.boot.launch.BootMavenSourcePathProvider"/>
-<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Dspring.profiles.active=peerAware&#10;-DPORT=8001&#10;-DpeerUrls=http://localhost:8001/eureka/,http://localhost:8002/eureka/"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Djava.security.egd=file:/dev/./urandom&#10;-Dspring.profiles.active=peerAware&#10;-DPORT=8002&#10;-DpeerUrls=http://localhost:8001/eureka/,http://localhost:8002/eureka/"/>
+<stringAttribute key="process_factory_id" value="org.springframework.ide.eclipse.boot.launch.process.BootProcessFactory"/>
 <booleanAttribute key="spring.boot.debug.enable" value="false"/>
+<booleanAttribute key="spring.boot.lifecycle.enable" value="true"/>
+<stringAttribute key="spring.boot.lifecycle.termination.timeout" value="15000"/>
 <booleanAttribute key="spring.boot.livebean.enable" value="true"/>
-<stringAttribute key="spring.boot.livebean.port" value="18001"/>
+<stringAttribute key="spring.boot.livebean.port" value="18002"/>
 <stringAttribute key="spring.boot.profile" value=""/>
 </launchConfiguration>
