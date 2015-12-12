@@ -10,20 +10,21 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>discovery-server</artifactId>
+	<version>0-SNAPSHOT</version>
 	<packaging>${packaging.type}</packaging>
 	<name>DiscoveryServer</name>
 	<description>Discovery Server</description>
 
 	<scm>
-		<connection>${project.git.url}</connection>
-		<developerConnection>${project.git.url}</developerConnection>
-		<url>http://git.3velopers.net:7990/projects/AC</url>
+		<connection>${repo.bitbucket.url}</connection>
+		<developerConnection>${repo.bitbucket.url}</developerConnection>
+		<url>${project.bitbucket.url}</url>
 	</scm>
 
 	<properties>
 		<start-class>com.asimio.cloud.eureka.EurekaServerApplication</start-class>
 		<packaging.type>jar</packaging.type>
-		<project.git.url>http://git.3velopers.net:7990/scm/ac/discoveryserver.git</project.git.url>
+		<repo.bitbucket.url>${bitbucket.url}/scm/ac/discoveryserver.git</repo.bitbucket.url>
 	</properties>
 
 	<dependencies>
