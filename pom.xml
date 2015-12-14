@@ -3,12 +3,14 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<parent>
-		<groupId>com.asimio.cloud</groupId>
-		<artifactId>CloudParentPOM</artifactId>
-		<version>1.0.26</version>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.3.0.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.asimio.cloud</groupId>
 	<artifactId>discovery-server</artifactId>
 	<version>0-SNAPSHOT</version>
 	<packaging>${packaging.type}</packaging>
@@ -22,25 +24,47 @@
 	</scm>
 
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
 		<start-class>com.asimio.cloud.eureka.EurekaServerApplication</start-class>
 		<packaging.type>jar</packaging.type>
+
+		<bitbucket.url>http://git.3velopers.net:7990</bitbucket.url>
+		<project.bitbucket.url>${bitbucket.url}/projects/AC</project.bitbucket.url>
 		<repo.bitbucket.url>${bitbucket.url}/scm/ac/discoveryserver.git</repo.bitbucket.url>
+		<site-url-base>http://webdav.3velopers.net/files/asimio-cloud/</site-url-base>
+		<site-connection-prefix>dav:</site-connection-prefix>
+		<maven.site.url>${site-connection-prefix}${site-url-base}</maven.site.url>
+		<maven.module.site.url>${maven.site.url}${project.artifactId}/</maven.module.site.url>
+
+		<!-- Plugins -->
+		<maven-clean-plugin.version>2.5</maven-clean-plugin.version>
+
+		<!-- Dependencies -->
+		<spring-cloud.version>Brixton.M3</spring-cloud.version>
 	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-starter-parent</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-eureka-server</artifactId>
 		</dependency>
-
-		<!-- Metrics -->
 		<dependency>
-			<groupId>com.ryantenney.metrics</groupId>
-			<artifactId>metrics-spring</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.dropwizard.metrics</groupId>
-			<artifactId>metrics-jvm</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 	</dependencies>
 
@@ -92,5 +116,24 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<repositories>
+		<repository>
+			<id>spring-snapshots</id>
+			<name>Spring Snapshots</name>
+			<url>https://repo.spring.io/snapshot</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 
 </project>
