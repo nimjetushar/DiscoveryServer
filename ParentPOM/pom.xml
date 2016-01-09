@@ -79,7 +79,7 @@
 
 		<!-- Dependencies -->
 		<spring-cloud.version>Brixton.M4</spring-cloud.version>
-                <tomcat.version>8.0.30</tomcat.version>
+		<tomcat.version>8.0.30</tomcat.version>
 	</properties>
 
 	<dependencyManagement>
