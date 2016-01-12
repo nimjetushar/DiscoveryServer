@@ -72,7 +72,37 @@
 	</profiles>
 
 	<build>
+		<finalName>${project.artifactId}</finalName>
+
 		<plugins>
+
+<!--
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-resources-plugin</artifactId>
+            <version>2.5</version>
+            <executions>
+                <execution>
+                    <id>custom-resources</id>
+                    <phase>process-resources</phase>
+                    <goals>
+                        <goal>copy-resources</goal>
+                    </goals>
+                    <configuration>
+                        <outputDirectory>${project.build.directory}</outputDirectory>
+                        <resources>
+                            <resource>
+                                <targetPath>${basedir}/target</targetPath>
+                                <directory>src/main/docker</directory>
+                                <filtering>true</filtering>
+                            </resource>
+                        </resources>
+                        <encoding>UTF-8</encoding>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+-->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
@@ -121,10 +151,11 @@
 									<classifier>linux_x64</classifier>
 									<type>tar.gz</type>
 									<overWrite>false</overWrite>
-									<outputDirectory>${project.build.directory}/bundle</outputDirectory>
+									<outputDirectory>${project.build.directory}</outputDirectory>
 									<destFileName>jre8.tar.gz</destFileName>
 								</artifactItem>
-								<!-- Tomcat -->
+								<!-- FIXME: Remove Tomcat -->
+<!--
 								<artifactItem>
 									<groupId>org.apache.tomcat</groupId>
 									<artifactId>tomcat</artifactId>
@@ -134,6 +165,7 @@
 									<outputDirectory>${project.build.directory}/bundle</outputDirectory>
 									<destFileName>tomcat8.tar.gz</destFileName>
 								</artifactItem>
+-->
 							</artifactItems>
 							<overWriteReleases>false</overWriteReleases>
 							<overWriteSnapshots>true</overWriteSnapshots>
@@ -145,6 +177,11 @@
 	            <groupId>com.spotify</groupId>
 	            <artifactId>docker-maven-plugin</artifactId>
 	            <version>${docker-maven-plugin-spotify.version}</version>
+	            <!-- Include:
+	                 export DOCKER_HOST=tcp://docker:4243
+                         in host executing mvn docker:build
+	            -->
+	            <!-- FIXME https://github.com/spotify/docker-maven-plugin#setup to push image to private registry -->
 	            <configuration>
 	                <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
 	                <dockerDirectory>src/main/docker</dockerDirectory>
@@ -153,7 +190,7 @@
 	                        <targetPath>/</targetPath>
 	                        <directory>${project.build.directory}</directory>
 	                        <include>${project.build.finalName}.jar</include>
-	                        <include>${project.build.directory}/bundle/jre8.tar.gz</include>
+	                        <include>jre8.tar.gz</include>
 	                    </resource>
 	                </resources>
 	            </configuration>
