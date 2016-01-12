@@ -26,6 +26,7 @@
 		<start-class>com.asimio.cloud.eureka.EurekaServerApplication</start-class>
 		<packaging.type>jar</packaging.type>
 
+		<maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
 		<maven-dependency-plugin.version>2.10</maven-dependency-plugin.version>
 		<docker-maven-plugin-spotify.version>0.3.9</docker-maven-plugin-spotify.version>
 		<docker.image.prefix>asimio-cloud</docker.image.prefix>
@@ -91,6 +92,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
 				<configuration>
 					<compilerArguments>
 						<source>${java.version}</source>
@@ -139,8 +141,6 @@
 					</execution>
 				</executions>
 			</plugin>
-
-			<!--
 			<plugin>
 	            <groupId>com.spotify</groupId>
 	            <artifactId>docker-maven-plugin</artifactId>
@@ -153,11 +153,11 @@
 	                        <targetPath>/</targetPath>
 	                        <directory>${project.build.directory}</directory>
 	                        <include>${project.build.finalName}.jar</include>
+	                        <include>${project.build.directory}/bundle/jre8.tar.gz</include>
 	                    </resource>
 	                </resources>
 	            </configuration>
 			</plugin>
-			-->
 		</plugins>
 	</build>
 
