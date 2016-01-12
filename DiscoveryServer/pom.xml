@@ -25,6 +25,10 @@
 	<properties>
 		<start-class>com.asimio.cloud.eureka.EurekaServerApplication</start-class>
 		<packaging.type>jar</packaging.type>
+
+		<maven-dependency-plugin.version>2.10</maven-dependency-plugin.version>
+		<docker-maven-plugin-spotify.version>0.3.9</docker-maven-plugin-spotify.version>
+		<docker.image.prefix>asimio-cloud</docker.image.prefix>
 	</properties>
 
 	<dependencies>
@@ -94,6 +98,66 @@
 					</compilerArguments>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>${maven-dependency-plugin.version}</version>
+				<executions>
+					<execution>
+						<id>copy</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<!-- JRE -->
+								<artifactItem>
+									<groupId>com.oracle.java</groupId>
+									<artifactId>jre</artifactId>
+									<version>8u66</version>
+									<classifier>linux_x64</classifier>
+									<type>tar.gz</type>
+									<overWrite>false</overWrite>
+									<outputDirectory>${project.build.directory}/bundle</outputDirectory>
+									<destFileName>jre8.tar.gz</destFileName>
+								</artifactItem>
+								<!-- Tomcat -->
+								<artifactItem>
+									<groupId>org.apache.tomcat</groupId>
+									<artifactId>tomcat</artifactId>
+									<version>8.0.30</version>
+									<type>tar.gz</type>
+									<overWrite>false</overWrite>
+									<outputDirectory>${project.build.directory}/bundle</outputDirectory>
+									<destFileName>tomcat8.tar.gz</destFileName>
+								</artifactItem>
+							</artifactItems>
+							<overWriteReleases>false</overWriteReleases>
+							<overWriteSnapshots>true</overWriteSnapshots>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!--
+			<plugin>
+	            <groupId>com.spotify</groupId>
+	            <artifactId>docker-maven-plugin</artifactId>
+	            <version>${docker-maven-plugin-spotify.version}</version>
+	            <configuration>
+	                <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+	                <dockerDirectory>src/main/docker</dockerDirectory>
+	                <resources>
+	                    <resource>
+	                        <targetPath>/</targetPath>
+	                        <directory>${project.build.directory}</directory>
+	                        <include>${project.build.finalName}.jar</include>
+	                    </resource>
+	                </resources>
+	            </configuration>
+			</plugin>
+			-->
 		</plugins>
 	</build>
 
