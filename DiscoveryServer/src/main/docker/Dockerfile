@@ -10,4 +10,5 @@ ENTRYPOINT ["java", "-jar", "/opt/asimio-cloud/discovery-server.jar"]
 EXPOSE 8000
 
 # Run as:
+# docker run -it -p 8001:8000 -e spring.profiles.active=standalone asimio-cloud/discovery-server:latest
 # docker run -it -p 8001:8000 -e spring.profiles.active=peerAware -e peerUrls=http://localhost:8001/eureka/,http://localhost:8002/eureka/ asimio-cloud/discovery-server:latest
