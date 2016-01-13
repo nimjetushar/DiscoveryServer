@@ -1,10 +1,7 @@
 server:
-  port: ${PORT:8000}
+  port: ${appPort:8000}
 
 management.contextPath: /admin
-
-metricsReporter:
-  period: 60m
 
 eureka:
   client:
@@ -31,6 +28,6 @@ peerUrls: http://localhost:${server.port}/eureka/
 spring:
   profiles: peerAware
 client:
-  registerWithEureka: true
-  fetchRegistry: true
-# -DpeerUrls VM argument as http://host1:port1/eureka/,http://host2:port2/eureka/,...
+  registerWithEureka: false
+  fetchRegistry: false
+# -DappPort=<port> -DpeerUrls=http://host1:port1/eureka/,http://host2:port2/eureka/,...
