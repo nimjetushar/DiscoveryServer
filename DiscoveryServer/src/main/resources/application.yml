@@ -4,12 +4,16 @@ server:
 management.contextPath: /admin
 
 eureka:
+  environment: ${environment}
+  datacenter: ${dataCenter}
+  enableSelfPreservation: false
   client:
     registerWithEureka: ${client.registerWithEureka}
     fetchRegistry: ${client.fetchRegistry}
     serviceUrl:
       defaultZone: ${peerUrls}
   instance:
+    hostname: ${hostName}
     statusPageUrlPath: ${management.contextPath}/info
     healthCheckUrlPath: ${management.contextPath}/health
     preferIpAddress: true
@@ -19,6 +23,9 @@ eureka:
 ---
 spring:
   profiles: standalone
+hostName: localhost
+environment: local
+dataCenter: ${hostName}
 client:
   registerWithEureka: false
   fetchRegistry: false
@@ -30,4 +37,4 @@ spring:
 client:
   registerWithEureka: false
   fetchRegistry: false
-# -DappPort=<port> -DpeerUrls=http://host1:port1/eureka/,http://host2:port2/eureka/,...
+# -DappPort=<port> -DhostName=<hostname> -DdataCenter=<data center> -e environment=<dev|test|staging|prod> -DpeerUrls=http://host1:port1/eureka/,http://host2:port2/eureka/,...
