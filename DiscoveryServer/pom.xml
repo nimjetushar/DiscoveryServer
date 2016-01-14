@@ -25,11 +25,11 @@
 	<properties>
 		<start-class>com.asimio.cloud.eureka.EurekaServerApplication</start-class>
 		<packaging.type>jar</packaging.type>
+		<docker.image.prefix>asimio-cloud</docker.image.prefix>
 
 		<maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
 		<maven-dependency-plugin.version>2.10</maven-dependency-plugin.version>
 		<docker-maven-plugin-spotify.version>0.3.9</docker-maven-plugin-spotify.version>
-		<docker.image.prefix>asimio-cloud</docker.image.prefix>
 	</properties>
 
 	<dependencies>
@@ -73,36 +73,7 @@
 
 	<build>
 		<finalName>${project.artifactId}</finalName>
-
 		<plugins>
-
-<!--
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-resources-plugin</artifactId>
-            <version>2.5</version>
-            <executions>
-                <execution>
-                    <id>custom-resources</id>
-                    <phase>process-resources</phase>
-                    <goals>
-                        <goal>copy-resources</goal>
-                    </goals>
-                    <configuration>
-                        <outputDirectory>${project.build.directory}</outputDirectory>
-                        <resources>
-                            <resource>
-                                <targetPath>${basedir}/target</targetPath>
-                                <directory>src/main/docker</directory>
-                                <filtering>true</filtering>
-                            </resource>
-                        </resources>
-                        <encoding>UTF-8</encoding>
-                    </configuration>
-                </execution>
-            </executions>
-        </plugin>
--->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
@@ -154,18 +125,6 @@
 									<outputDirectory>${project.build.directory}</outputDirectory>
 									<destFileName>jre8.tar.gz</destFileName>
 								</artifactItem>
-								<!-- FIXME: Remove Tomcat -->
-<!--
-								<artifactItem>
-									<groupId>org.apache.tomcat</groupId>
-									<artifactId>tomcat</artifactId>
-									<version>8.0.30</version>
-									<type>tar.gz</type>
-									<overWrite>false</overWrite>
-									<outputDirectory>${project.build.directory}/bundle</outputDirectory>
-									<destFileName>tomcat8.tar.gz</destFileName>
-								</artifactItem>
--->
 							</artifactItems>
 							<overWriteReleases>false</overWriteReleases>
 							<overWriteSnapshots>true</overWriteSnapshots>
