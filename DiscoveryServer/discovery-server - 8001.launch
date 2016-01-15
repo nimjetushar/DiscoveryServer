@@ -10,7 +10,7 @@
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="com.asimio.cloud.eureka.EurekaServerApplication"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="discovery-server"/>
 <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.springframework.ide.eclipse.boot.launch.BootMavenSourcePathProvider"/>
-<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Djava.security.egd=file:/dev/./urandom&#10;-Dspring.profiles.active=peerAware&#10;-DPORT=8001&#10;-DpeerUrls=http://localhost:8001/eureka/,http://localhost:8002/eureka/"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Djava.security.egd=file:/dev/./urandom&#10;-Dspring.profiles.active=peerAware&#10;-DappPort=8001&#10;-DhostName=localhost&#10;-DdataCenter=local-dev&#10;-Denvironment=dev&#10;-DpeerUrls=http://localhost:8001/eureka/,http://localhost:8002/eureka/"/>
 <stringAttribute key="process_factory_id" value="org.springframework.ide.eclipse.boot.launch.process.BootProcessFactory"/>
 <booleanAttribute key="spring.boot.debug.enable" value="false"/>
 <booleanAttribute key="spring.boot.lifecycle.enable" value="true"/>
