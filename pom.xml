@@ -6,11 +6,13 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.3.1.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>discovery-server</artifactId>
+	<groupId>com.asimio.cloud</groupId>
+	<version>0-SNAPSHOT</version>
 	<packaging>${packaging.type}</packaging>
 	<name>DiscoveryServer</name>
 	<description>Discovery Server</description>
