@@ -186,7 +186,7 @@
 								<artifactItem>
 									<groupId>com.oracle.java</groupId>
 									<artifactId>jre</artifactId>
-									<version>8u66</version>
+									<version>8u72</version>
 									<classifier>linux_x64</classifier>
 									<type>tar.gz</type>
 									<overWrite>false</overWrite>
