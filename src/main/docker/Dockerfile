@@ -5,15 +5,23 @@ RUN bash -c 'DEBIAN_FRONTEND=noninteractive apt-get install -y curl'
 
 VOLUME /tmp
 
-ADD jre8.tar.gz /opt/
-ADD discovery-server.jar /opt/asimio-cloud/discovery-server.jar
-RUN bash -c 'touch /opt/asimio-cloud/discovery-server.jar'
+ENV USER_NAME discoverysvc
+ENV APP_HOME /opt/asimio-cloud/$USER_NAME
+RUN useradd -ms /bin/bash $USER_NAME
+RUN mkdir -p $APP_HOME
 
+ADD discovery-server.jar ${APP_HOME}/discovery-server.jar
+RUN chown $USER_NAME $APP_HOME/discovery-server.jar
+RUN bash -c 'touch ${APP_HOME}/discovery-server.jar'
+
+ADD jre8.tar.gz /opt/
 ENV JAVA_HOME /opt/jre
 ENV PATH $JAVA_HOME/bin:$PATH
 ENV JAVA_TOOL_OPTIONS "-Xms256M -Xmx256M -Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom"
 
-ENTRYPOINT ["java", "-jar", "/opt/asimio-cloud/discovery-server.jar"]
+USER $USER_NAME
+WORKDIR $APP_HOME
+ENTRYPOINT ["java", "-jar", "discovery-server.jar"]
 
 # No need to EXPOSE port since it's using host's networking
 
