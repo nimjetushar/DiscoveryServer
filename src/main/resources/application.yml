@@ -3,6 +3,12 @@ server:
 
 management.contextPath: /admin
 
+info:
+  app:
+    name: @project.artifactId@
+  build:
+    version: @project.version@
+
 eureka:
   environment: ${environment}
   datacenter: ${dataCenter}
