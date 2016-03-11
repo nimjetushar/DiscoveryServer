@@ -24,7 +24,7 @@
 	</scm>
 
 	<organization>
-		<name>Asimio, Inc</name>
+		<name>Asimio Tech LLC</name>
 		<url>http://asimio.net/</url>
 	</organization>
 	<inceptionYear>2008</inceptionYear>
@@ -57,7 +57,7 @@
 		<developer>
 			<id>ootero</id>
 			<name>Orlando L Otero</name>
-			<organization>Asimio, Inc</organization>
+			<organization>Asimio Tech LLC</organization>
 		</developer>
 	</developers>
 
