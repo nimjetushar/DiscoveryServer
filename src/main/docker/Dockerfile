@@ -1,7 +1,4 @@
-FROM ubuntu:14.04
-
-RUN bash -c 'apt-get -qq update && apt-get -y upgrade && apt-get -y autoclean && apt-get -y autoremove'
-RUN bash -c 'DEBIAN_FRONTEND=noninteractive apt-get install -y curl'
+FROM asimio/jre8
 
 VOLUME /tmp
 
@@ -14,9 +11,6 @@ ADD discovery-server.jar ${APP_HOME}/discovery-server.jar
 RUN chown $USER_NAME $APP_HOME/discovery-server.jar
 RUN bash -c 'touch ${APP_HOME}/discovery-server.jar'
 
-ADD jre8.tar.gz /opt/
-ENV JAVA_HOME /opt/jre
-ENV PATH $JAVA_HOME/bin:$PATH
 ENV JAVA_TOOL_OPTIONS "-Xms256M -Xmx256M -Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom"
 
 USER $USER_NAME
