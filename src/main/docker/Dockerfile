@@ -4,12 +4,14 @@ VOLUME /tmp
 
 ENV USER_NAME discoverysvc
 ENV APP_HOME /opt/asimio-cloud/$USER_NAME
-RUN useradd -ms /bin/bash $USER_NAME
-RUN mkdir -p $APP_HOME
+RUN \
+  useradd -ms /bin/bash $USER_NAME && \
+  mkdir -p $APP_HOME
 
 ADD discovery-server.jar ${APP_HOME}/discovery-server.jar
-RUN chown $USER_NAME $APP_HOME/discovery-server.jar
-RUN bash -c 'touch ${APP_HOME}/discovery-server.jar'
+RUN \
+  chown $USER_NAME $APP_HOME/discovery-server.jar && \
+  bash -c 'touch ${APP_HOME}/discovery-server.jar'
 
 ENV JAVA_TOOL_OPTIONS "-Xms256M -Xmx256M -Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom"
 
