@@ -1,4 +1,5 @@
-FROM asimio/jre8
+FROM azul/zulu-openjdk:8
+MAINTAINER Orlando L Otero <ootero@asimio.net>, https://bitbucket.org/asimio/discoveryserver.git
 
 VOLUME /tmp
 
