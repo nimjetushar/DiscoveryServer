@@ -15,7 +15,7 @@ public class EurekaServerApplication extends SpringBootServletInitializer {
 		return builder.sources(EurekaServerApplication.class);
 	}
 
-    public static void main(String[] args) {
-        SpringApplication.run(EurekaServerApplication.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(EurekaServerApplication.class, args);
+	}
 }

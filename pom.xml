@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.3.3.RELEASE</version>
+		<version>1.3.5.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
@@ -25,16 +25,16 @@
 
 	<organization>
 		<name>Asimio Tech LLC</name>
-		<url>http://asimio.net/</url>
+		<url>http://tech.asimio.net/</url>
 	</organization>
-	<inceptionYear>2008</inceptionYear>
+	<inceptionYear>2016</inceptionYear>
 	<ciManagement>
 		<system>jenkins</system>
 		<url>http://jenkins.3velopers.net:8080/jenkins/</url>
 	</ciManagement>
 	<issueManagement>
-		<system>Jira</system>
-		<url>http://jira.3velopers.net:8080/</url>
+		<system>Bitbucket.org</system>
+		<url>https://bitbucket.org/asimio/discoveryserver/issues</url>
 	</issueManagement>
 	<distributionManagement>
 		<snapshotRepository>
@@ -69,9 +69,8 @@
 		<packaging.type>jar</packaging.type>
 		<docker.image.prefix>asimio-cloud</docker.image.prefix>
 
-		<bitbucket.url>http://git.3velopers.net:7990</bitbucket.url>
-		<project.bitbucket.url>${bitbucket.url}/projects/AC</project.bitbucket.url>
-		<repo.bitbucket.url>scm:git:${bitbucket.url}/scm/ac/discoveryserver.git</repo.bitbucket.url>
+		<project.bitbucket.url>https://bitbucket.org/asimio</project.bitbucket.url>
+		<repo.bitbucket.url>${project.bitbucket.url}/discoveryserver.git</repo.bitbucket.url>
 		<site-url-base>http://webdav.3velopers.net/files/cloud/discovery-server</site-url-base>
 		<site-connection-prefix>dav:</site-connection-prefix>
 		<maven.site.url>${site-connection-prefix}${site-url-base}</maven.site.url>
@@ -80,11 +79,14 @@
 		<!-- Plugins -->
 		<maven-clean-plugin.version>2.5</maven-clean-plugin.version>
 		<maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
-		<docker-maven-plugin-spotify.version>0.3.9</docker-maven-plugin-spotify.version>
+		<docker-maven-plugin-spotify.version>0.4.5</docker-maven-plugin-spotify.version>
 
 		<!-- Dependencies -->
-		<spring-cloud.version>Brixton.RC1</spring-cloud.version>
-		<undertow.version>1.3.12.Final</undertow.version>
+		<spring-cloud.version>Brixton.RELEASE</spring-cloud.version>
+		<undertow.version>1.3.22.Final</undertow.version>
+
+		<!-- Test Dependencies -->
+		<rest-assured.version>2.9.0</rest-assured.version>
 	</properties>
 
 	<dependencyManagement>
@@ -117,6 +119,19 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-undertow</artifactId>
+		</dependency>
+
+		<!-- Test -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+		<groupId>com.jayway.restassured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>${rest-assured.version}</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
