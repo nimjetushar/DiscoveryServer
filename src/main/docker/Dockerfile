@@ -22,4 +22,4 @@ ENTRYPOINT ["java", "-jar", "discovery-server.jar"]
 # No need to EXPOSE port since it's using host's networking
 
 # Run as:
-# docker run -idt -p 8001:8001 --net=host -e spring.profiles.active=peerAware -e appPort=8001 -e hostName=$HOSTNAME -e dataCenter=asimio-cloud-dal -e environment=staging -e peerUrls="http://$HOSTNAME:8002/eureka/" asimio-cloud/discovery-server:latest
+# docker run -idt -p 8001:8001 --net=host -e spring.profiles.active=peerAware -e appPort=8001 -e hostName=$HOSTNAME -e dataCenter=asimio-cloud-dal -e environment=staging -e peerUrls="http://$HOSTNAME:8002/eureka/" asimio/discovery-server:latest
