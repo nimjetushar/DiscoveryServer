@@ -67,7 +67,7 @@
 		<java.version>1.8</java.version>
 		<start-class>com.asimio.cloud.eureka.EurekaServerApplication</start-class>
 		<packaging.type>jar</packaging.type>
-		<docker.image.prefix>asimio-cloud</docker.image.prefix>
+		<docker.image.prefix>asimio</docker.image.prefix>
 
 		<project.bitbucket.url>https://bitbucket.org/asimio</project.bitbucket.url>
 		<repo.bitbucket.url>${project.bitbucket.url}/discoveryserver.git</repo.bitbucket.url>
