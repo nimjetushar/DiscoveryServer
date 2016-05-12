@@ -31,7 +31,7 @@ public class EurekaServerApplicationTest {
 	}
 
 	@Test
-	public void shouldRetrieveNameVersion1InURL() {
+	public void shouldRetrieveHomePage() {
 		RestAssured.
 			given().
 				accept(ContentType.JSON).
