@@ -68,6 +68,7 @@
 		<start-class>com.asimio.cloud.eureka.EurekaServerApplication</start-class>
 		<packaging.type>jar</packaging.type>
 		<docker.image.prefix>asimio</docker.image.prefix>
+		<push.image>false</push.image>
 
 		<project.bitbucket.url>https://bitbucket.org/asimio</project.bitbucket.url>
 		<repo.bitbucket.url>${project.bitbucket.url}/discoveryserver.git</repo.bitbucket.url>
@@ -201,9 +202,14 @@
 	                 export DOCKER_HOST=tcp://docker:4243
                          in host executing mvn docker:build
 	            -->
-	            <!-- FIXME https://github.com/spotify/docker-maven-plugin#setup to push image to private registry -->
 	            <configuration>
-	                <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+				    <imageName>${docker.image.prefix}/${project.artifactId}:${project.version}</imageName>
+				    <pushImage>${push.image}</pushImage>
+				    <forceTags>true</forceTags>
+					<imageTags>
+			           <imageTag>${project.version}</imageTag>
+			           <imageTag>latest</imageTag>
+			        </imageTags>
 	                <dockerDirectory>src/main/docker</dockerDirectory>
 	                <resources>
 	                    <resource>
