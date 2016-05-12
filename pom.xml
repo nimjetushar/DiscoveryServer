@@ -72,7 +72,7 @@
 
 		<project.bitbucket.url>https://bitbucket.org/asimio</project.bitbucket.url>
 		<repo.bitbucket.url>${project.bitbucket.url}/discoveryserver.git</repo.bitbucket.url>
-		<site-url-base>http://webdav.3velopers.net/files/cloud/discovery-server</site-url-base>
+		<site-url-base>http://webdav.3velopers.net/files/cloud/${${project.artifactId}}</site-url-base>
 		<site-connection-prefix>dav:</site-connection-prefix>
 		<maven.site.url>${site-connection-prefix}${site-url-base}</maven.site.url>
 		<maven.module.site.url>${maven.site.url}${project.artifactId}/</maven.module.site.url>
