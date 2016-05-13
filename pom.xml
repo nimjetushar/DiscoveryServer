@@ -200,7 +200,8 @@
 	            <version>${docker-maven-plugin-spotify.version}</version>
 	            <!-- Include:
 	                 export DOCKER_HOST=tcp://docker:4243
-                         in host executing mvn docker:build
+                     in host executing:
+                     mvn docker:build
 	            -->
 	            <configuration>
 				    <imageName>${docker.image.prefix}/${project.artifactId}:${project.version}</imageName>
