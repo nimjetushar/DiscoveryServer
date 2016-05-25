@@ -204,6 +204,7 @@
                      mvn docker:build
 	            -->
 	            <configuration>
+					<serverId>docker-hub</serverId>
 				    <imageName>${docker.image.prefix}/${project.artifactId}:${project.version}</imageName>
 				    <pushImage>${push.image}</pushImage>
 				    <forceTags>true</forceTags>
