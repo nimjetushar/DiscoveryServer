@@ -34,24 +34,8 @@
 	</ciManagement>
 	<issueManagement>
 		<system>Bitbucket.org</system>
-		<url>https://bitbucket.org/asimio/discoveryserver/issues</url>
+		<url>${project.bitbucket.url}/discoveryserver/issues</url>
 	</issueManagement>
-	<distributionManagement>
-		<snapshotRepository>
-			<id>nexus-snapshots</id>
-			<name>Internal Snapshots</name>
-			<url>http://nexus.3velopers.net:8081/nexus/content/repositories/snapshots</url>
-		</snapshotRepository>
-		<repository>
-			<id>nexus-releases</id>
-			<name>Internal Releases</name>
-			<url>http://nexus.3velopers.net:8081/nexus/content/repositories/releases</url>
-		</repository>
-		<site>
-			<id>asimio.reports.site</id>
-			<url>${maven.site.url}</url>
-		</site>
-	</distributionManagement>
 
 	<developers>
 		<developer>
@@ -72,15 +56,11 @@
 
 		<project.bitbucket.url>https://bitbucket.org/asimio</project.bitbucket.url>
 		<repo.bitbucket.url>${project.bitbucket.url}/discoveryserver.git</repo.bitbucket.url>
-		<site-url-base>http://webdav.3velopers.net/files/cloud/${project.artifactId}</site-url-base>
-		<site-connection-prefix>dav:</site-connection-prefix>
-		<maven.site.url>${site-connection-prefix}${site-url-base}</maven.site.url>
-		<maven.module.site.url>${maven.site.url}${project.artifactId}/</maven.module.site.url>
 
 		<!-- Plugins -->
 		<maven-clean-plugin.version>2.5</maven-clean-plugin.version>
 		<maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
-		<docker-maven-plugin-spotify.version>0.4.5</docker-maven-plugin-spotify.version>
+		<docker-maven-plugin-spotify.version>0.4.10</docker-maven-plugin-spotify.version>
 
 		<!-- Dependencies -->
 		<spring-cloud.version>Brixton.SR4</spring-cloud.version>
@@ -198,13 +178,17 @@
 	            <groupId>com.spotify</groupId>
 	            <artifactId>docker-maven-plugin</artifactId>
 	            <version>${docker-maven-plugin-spotify.version}</version>
-	            <!-- Include:
-	                 export DOCKER_HOST=tcp://docker:4243
-                     in host executing:
-                     mvn docker:build
-	            -->
+				<!-- Include:
+					export DOCKER_HOST=tcp://docker:4243
+					in host executing mvn docker:build
+				-->
 	            <configuration>
+					<!-- One or the other -->
+					<!-- First add server entry in settings.xml -->
 					<serverId>docker-hub</serverId>
+<!-- 					Uses ~/.docker/config.json created once logged in using "docker login" command -->
+<!-- 					<useConfigFile>true</useConfigFile> -->
+
 				    <imageName>${docker.image.prefix}/${project.artifactId}:${project.version}</imageName>
 				    <pushImage>${push.image}</pushImage>
 				    <forceTags>true</forceTags>
@@ -224,5 +208,13 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<repositories>
+		<repository>
+			<id>spring-milestone</id>
+			<name>Spring Milestone Repository</name>
+			<url>https://repo.spring.io/milestone</url>
+		</repository>
+	</repositories>
 
 </project>
