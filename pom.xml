@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.3.7.RELEASE</version>
+		<version>1.4.0.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
@@ -63,7 +63,7 @@
 		<docker-maven-plugin-spotify.version>0.4.10</docker-maven-plugin-spotify.version>
 
 		<!-- Dependencies -->
-		<spring-cloud.version>Brixton.SR4</spring-cloud.version>
+		<spring-cloud.version>Brixton.SR5</spring-cloud.version>
 		<undertow.version>1.3.23.Final</undertow.version>
 
 		<!-- Test Dependencies -->
