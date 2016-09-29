@@ -14,8 +14,8 @@ eureka:
   datacenter: ${dataCenter}
   enableSelfPreservation: false
   client:
-    registerWithEureka: ${client.registerWithEureka}
-    fetchRegistry: ${client.fetchRegistry}
+    registerWithEureka: false
+    fetchRegistry: false
     serviceUrl:
       defaultZone: ${peerUrls}
   instance:
@@ -32,15 +32,9 @@ spring:
 hostName: localhost
 environment: local
 dataCenter: ${hostName}
-client:
-  registerWithEureka: false
-  fetchRegistry: false
 peerUrls: http://localhost:${server.port}/eureka/
 
 ---
 spring:
   profiles: peerAware
-client:
-  registerWithEureka: false
-  fetchRegistry: false
 # -DappPort=<port> -DhostName=<hostname> -DdataCenter=<data center> -e environment=<dev|test|staging|prod> -DpeerUrls=http://host1:port1/eureka/,http://host2:port2/eureka/,...
