@@ -63,7 +63,7 @@
 		<docker-maven-plugin-spotify.version>0.4.10</docker-maven-plugin-spotify.version>
 
 		<!-- Dependencies -->
-		<spring-cloud.version>Camden.SR1</spring-cloud.version>
+		<spring-cloud.version>Camden.SR2</spring-cloud.version>
 <!-- 		<undertow.version>1.3.25.Final</undertow.version> -->
 
 		<!-- Test Dependencies -->
