@@ -1,6 +1,6 @@
 # README #
 
-Discovery Server accompanying source code for blog entry at http://tech.asimio.net/2016/11/14/Microservices-Registration-and-Discovery-using-Spring-Cloud-Eureka-Ribbon-and-Feign.html
+Discovery Server's accompanying source code for blog entry at http://tech.asimio.net/2016/11/14/Microservices-Registration-and-Discovery-using-Spring-Cloud-Eureka-Ribbon-and-Feign.html
 
 ### Requirements ###
 
