@@ -1,6 +1,6 @@
 # README #
 
-Accompanying source code for blog entry at FIXME
+Accompanying source code for blog entry at http://tech.asimio.net/2016/11/14/Microservices-Registration-and-Discovery-using-Spring-Cloud-Eureka-Ribbon-and-Feign.html
 
 ### Requirements ###
 
