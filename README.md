@@ -28,10 +28,12 @@ Open http://localhost:8001 or http://localhost:8002 in a browser
 
 ```
 sudo docker pull asimio/discovery-server
+```
 
 Multiple containers:
-sudo docker run -idt -p 8001:8001 -e appPort=8001 -e spring.profiles.active=peerAware -e hostName=localhost -e dataCenter=local-dev -e environment=dev -e peerUrls=http://localhost:8001/eureka/,http://localhost:8002/eureka/ asimio/discovery-server.jar:latest
-sudo docker run -idt -p 8002:8002 -e appPort=8002 -e spring.profiles.active=peerAware -e hostName=localhost -e dataCenter=local-dev -e environment=dev -e peerUrls=http://localhost:8001/eureka/,http://localhost:8002/eureka/ asimio/discovery-server.jar:latest
+```
+sudo docker run -idt -p 8001:8001 -e appPort=8001 -e spring.profiles.active=peerAware -e hostName=localhost -e dataCenter=local-dev -e environment=dev -e peerUrls=http://localhost:8001/eureka/,http://localhost:8002/eureka/ asimio/discovery-server:latest
+sudo docker run -idt -p 8002:8002 -e appPort=8002 -e spring.profiles.active=peerAware -e hostName=localhost -e dataCenter=local-dev -e environment=dev -e peerUrls=http://localhost:8001/eureka/,http://localhost:8002/eureka/ asimio/discovery-server:latest
 ```
 
 Open http://localhost:8001 or http://localhost:8002 in a browser
