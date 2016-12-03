@@ -1,0 +1,19 @@
+language: java
+jdk:
+  - oraclejdk8
+branches:
+  only:
+    - master
+env:
+  - secure: RtwyJQRJzPCKMRxoKZ87xEm/EUT9sIutXUEVsW2rE6U+nrkUfnxhUFg7l6dmAdtb6nKZoEt1tJypQhKIpqOdkZPku1jcUAuUfgLQKjj4WJLUZmAJ+Ed6PJr70xYVdhIe+pfc+sai/caIRuL++Knff7kDrPgeyG7KwAgfwvZsmha8qxPspTsfZrPH5I9DLsrt1M/HH5Tu5k+slr9gwDeJ3Os/KRaLoim04Oh8Vnind3NeIkqqV/Vp7XrTzYp6/2uCG524GZ5eG0D8hzonxdZ3/awwu129EJHYL1zB8PIWhaVyOhSPNu4b+tH9UWimAMNVKK4UdgRDjQujkDbf59JZdA==
+build:
+  ci:
+    # Generates build number
+    - BUILD_NUMBER=`git log --oneline | wc -l`
+    - echo "Build number':' ${BUILD_NUMBER}"
+    # Sets version
+    - mvn versions:set -DnewVersion=1.0.${BUILD_NUMBER}
+    # Builds and pushes to Docker Hub
+    - mvn package
+    - docker login -u ${DOCKERHUB_USERNAME} -p ${DOCKERHUB_PASSWD} --email ${DOCKERHUB_EMAIL} https://index.docker.io/v1/
+    - mvn -X docker:build -Dpush.image=true
