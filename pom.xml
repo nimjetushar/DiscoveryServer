@@ -28,10 +28,6 @@
 		<url>http://tech.asimio.net/</url>
 	</organization>
 	<inceptionYear>2016</inceptionYear>
-	<ciManagement>
-		<system>jenkins</system>
-		<url>http://jenkins.3velopers.net:8080/jenkins/</url>
-	</ciManagement>
 	<issueManagement>
 		<system>Bitbucket.org</system>
 		<url>${project.bitbucket.url}/discoveryserver/issues</url>
@@ -185,9 +181,9 @@
 	            <configuration>
 					<!-- One or the other -->
 					<!-- First add server entry in settings.xml -->
-					<serverId>docker-hub</serverId>
-<!-- 					Uses ~/.docker/config.json created once logged in using "docker login" command -->
-<!-- 					<useConfigFile>true</useConfigFile> -->
+<!-- 					<serverId>docker-hub</serverId> -->
+					<!-- Uses ~/.docker/config.json created once logged in using "docker login" command -->
+					<useConfigFile>true</useConfigFile>
 
 				    <imageName>${docker.image.prefix}/${project.artifactId}:${project.version}</imageName>
 				    <pushImage>${push.image}</pushImage>
