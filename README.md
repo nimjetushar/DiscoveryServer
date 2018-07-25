@@ -40,5 +40,5 @@ Open http://localhost:8001 or http://localhost:8002 in a browser
 
 ### Who do I talk to? ###
 
-* ootero at asimio dot net
+* orlando.otero at asimio dot net
 * https://www.linkedin.com/in/ootero
